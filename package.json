@@ -1,0 +1,34 @@
+{
+  "name": "sparkar-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "dev": "webpack --watch --mode production"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-regenerator-runtime": "^6.5.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "sparkar-autofit": "^0.3.2",
+    "sparkar-invoke": "^0.2.5",
+    "sparkar-particle": "^0.2.2",
+    "sparkar-pftween": "^1.0.4",
+    "sparkar-picker-handler": "^0.7.1",
+    "sparkar-remap": "^0.1.0",
+    "sparkar-scenequery": "^0.1.4",
+    "webpack": "^4.42.1"
+  }
+}
