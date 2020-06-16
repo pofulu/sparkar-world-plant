@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "sparkar-autofit": "^0.3.2",
+    "sparkar-device": "^0.1.0",
     "sparkar-invoke": "^0.2.5",
     "sparkar-particle": "^0.2.2",
     "sparkar-pftween": "^1.0.4",

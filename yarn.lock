@@ -3301,6 +3301,11 @@ sparkar-autofit@^0.3.2:
   resolved "https://registry.yarnpkg.com/sparkar-autofit/-/sparkar-autofit-0.3.2.tgz#1ca351b93f8c3ebfdc317f61cc1c1d0ca19a242f"
   integrity sha512-UVRUD0/qKlDS6cdnxRBannlWbWIhstazJEbpXMrffhIevAmWi/3iBI/WKJXLaufG9D74MqDNppWLAC3QzpvXTg==
 
+sparkar-device@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/sparkar-device/-/sparkar-device-0.1.0.tgz#babdfb659ee95ac93a411ed1d1d18564134c3f1a"
+  integrity sha512-MFe8QxbUsznrFYmtOM7nIhwO+77B7o1KcLGqsLmSSQ1XgJx3UbD65+vOdQlI4eL8QKcHSieoclLLgjkG6fL4tg==
+
 sparkar-invoke@^0.2.5:
   version "0.2.5"
   resolved "https://registry.yarnpkg.com/sparkar-invoke/-/sparkar-invoke-0.2.5.tgz#cb1ef1aa8253133a34e1787033acbfe2b2062521"

@@ -1,9 +1,10 @@
 
 import { PFTween, Ease } from 'sparkar-pftween';
-import { getFirst, setHiddenTrue } from 'sparkar-scenequery';
+import { getFirst, setHiddenTrue, setHiddenFalse } from 'sparkar-scenequery';
 import { range } from './RandomUtil';
 import { toRadian } from 'sparkar-remap';
 import { invokeOnce } from 'sparkar-invoke';
+import { getPlayCount } from './State';
 
 const Diagnostics = require('Diagnostics');
 const Scene = require('Scene');
@@ -14,17 +15,34 @@ const Materials = require('Materials');
 const Effect = require('./Effect');
 
 export async function init() {
-    const stem = await Scene.root.findByPath('**/planeTracker0/**/stem_pivot').then(getFirst).then(setHiddenTrue);
+    const count = await getPlayCount();
+    Diagnostics.log(count);
 
-    const flowers = await Scene.root.findByPath('**/planeTracker0/**/flowers_pool/*').then(setHiddenTrue);
-    const flowersGrowPoints = await Scene.root.findByPath('**/planeTracker0/**/flower_grow_point*').then(setHiddenTrue);
+    if (count == 0) {
+        await setPot(0);
+    } else if (count == 1) {
+        await setPot(0);
+        await setPot(1);
+    } else if (count >= 2) {
+        await setPot(1);
+        await setPot(2);
+    }
+}
 
-    const leaves = await Scene.root.findByPath('**/planeTracker0/**/leaves_pool/*').then(setHiddenTrue);
-    const leavesGrowPoints = await Scene.root.findByPath('**/planeTracker0/**/leaf_grow_point*').then(setHiddenTrue);
+async function setPot(index) {
+    await Scene.root.findByPath(`**/planeTracker0/**/plant_root${index}`).then(getFirst).then(setHiddenFalse);
 
-    const seed = await Scene.root.findFirst('seed_pivot');
+    const stem = await Scene.root.findByPath(`**/planeTracker0/**/plant_root${index}/**/stem_pivot`).then(getFirst).then(setHiddenTrue);
 
-    const pot = await Scene.root.findByPath('**/pot_pivot/cube').then(getFirst);
+    const flowers = await Scene.root.findByPath(`**/planeTracker0/**/plant_root${index}/flowers_pool/*`).then(setHiddenTrue);
+    const flowersGrowPoints = await Scene.root.findByPath(`**/planeTracker0/**/plant_root${index}/**/flower_grow_point*`).then(setHiddenTrue);
+
+    const leaves = await Scene.root.findByPath(`**/planeTracker0/**/plant_root${index}/leaves_pool/*`).then(setHiddenTrue);
+    const leavesGrowPoints = await Scene.root.findByPath(`**/planeTracker0/**/plant_root${index}/**/leaf_grow_point*`).then(setHiddenTrue);
+
+    const seed = await Scene.root.findByPath(`**/planeTracker0/**/plant_root${index}/seed_pivot`).then(getFirst);
+
+    const pot = await Scene.root.findByPath(`**/planeTracker0/**/plant_root${index}/pot_pivot/cube`).then(getFirst);
 
     invokeOnce(TouchGestures.onTap(pot), async () => {
         await Effect.rain();
