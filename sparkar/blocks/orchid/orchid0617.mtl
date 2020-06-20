@@ -1,0 +1,88 @@
+# Blender MTL File: 'orchidhead-out.blend'
+# Material Count: 8
+
+newmtl Material
+Ns 9.413744
+Ka 1.000000 1.000000 1.000000
+Kd 0.103761 0.049861 0.000000
+Ks 0.250000 0.250000 0.250000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl Material.001
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd /Users/Eri/Desktop/FLOWER MODELS/material/orchid/sidemiddlepetal3.png
+
+newmtl Material.003
+Ns 144.000026
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd /Users/Eri/Desktop/FLOWER MODELS/material/orchid/dcmap_orchid_pink_19.jpg
+
+newmtl orchisidepetal
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd /Users/Eri/Desktop/FLOWER MODELS/material/orchid/bigpetal01.png
+
+newmtl orchisidepetal.001
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd /Users/Eri/Desktop/FLOWER MODELS/material/orchid/bigpetal01.png
+
+newmtl sidepetal
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd /Users/Eri/Desktop/FLOWER MODELS/material/orchid/sidepetal2.png
+
+newmtl sidepetal.001
+Ns 225.000000
+Ka 1.000000 1.000000 1.000000
+Kd 0.800000 0.800000 0.800000
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
+map_Kd /Users/Eri/Desktop/FLOWER MODELS/material/orchid/sidepetal2.png
+
+newmtl stem
+Ns 144.000026
+Ka 1.000000 1.000000 1.000000
+Kd 0.020289 0.021219 0.000607
+Ks 0.000000 0.000000 0.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 1
