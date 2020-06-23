@@ -1,5 +1,6 @@
 const Persistence = require('Persistence');
 const Diagnostics = require('Diagnostics');
+const Reactive = require('Reactive');
 
 const userScope = Persistence.userScope;
 
@@ -39,7 +40,7 @@ async function getPersistenceData() {
 /**
  * @returns {Promise<number>}
  */
-export async function getPlayCount() {
+export async function getPlayTimes() {
     const currentData = await getPersistenceData();
 
     return currentData.count;

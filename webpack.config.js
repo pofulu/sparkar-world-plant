@@ -2,7 +2,7 @@ const path = require('path')
 const glob = require('glob');
 
 module.exports = {
-  entry: ['babel-regenerator-runtime', ...glob.sync("./src/*.js")],
+  entry: ['babel-regenerator-runtime', ...glob.sync("./src/index.js")],
   module: {
     rules: [
       {
