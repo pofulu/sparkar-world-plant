@@ -34,4 +34,6 @@ export async function on(pos) {
         await growFlower(flowersGrowPoints, flowers, 'xz');
         await growLeaves(leavesGrowPoints, leaves, true);
     })
+
+    return pot;
 }

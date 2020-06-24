@@ -1,6 +1,6 @@
 import { growFlower, growStem, growLeaves } from './Plant';
 import { invokeOnce } from 'sparkar-invoke';
-import { setHiddenTrue } from 'sparkar-scenequery';
+import { setHiddenTrue, getFirst } from 'sparkar-scenequery';
 import { range } from './RandomUtil';
 import { toRadian } from 'sparkar-remap';
 
@@ -30,10 +30,17 @@ export async function on(pos) {
 
     stem.hidden = true;
 
-    invokeOnce(TouchGestures.onTap(pot), async () => {
+    await invokeOnce(TouchGestures.onTap(pot), async () => {
         await Effect.rain();
         await growStem(stem);
         await growFlower(flowersGrowPoints, flowers, 'xz');
-        await growLeaves(leavesGrowPoints, leaves, true);
-    })
+        await growLeaves(leavesGrowPoints, leaves, 'xy', async (leaf, point) => {
+            leaf.transform.rotationY = point.transform.rotationY.add(toRadian(range(-180, 180)));
+            const child = await leaf.findByPath('*').then(getFirst);
+            const size = range(1, 2.5);
+            child.transform.scale = Reactive.pack3(size, size, size);
+        });
+    });
+
+    return pot;
 }

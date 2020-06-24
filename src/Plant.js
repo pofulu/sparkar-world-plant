@@ -35,7 +35,7 @@ export async function growFlower(points, flowers, ranRot) {
         if (ranRot.indexOf('z') !== -1) flower.transform.rotationZ = point.transform.rotationZ.add(toRadian(range(-45, 45)));
 
         const size = range(1.2, 1.5);
-        flower.transform.scale = new PFTween(0, size, 1000).setDelay(i * 80).setEase(Ease.easeOutQuad).scale;
+        flower.transform.scale = new PFTween(0, size, 1000).setDelay(i * 100).setEase(Ease.easeOutQuad).scale;
         flower.hidden = false;
     }
 }
@@ -44,7 +44,7 @@ export async function growFlower(points, flowers, ranRot) {
  * @param {any[]} points
  * @param {any[]} leaves 
  */
-export async function growLeaves(points, leaves, ranRot = true) {
+export async function growLeaves(points, leaves, ranRot, onGrow) {
     const count = Math.min(points.length, leaves.length);
 
     let clips = [];
@@ -55,11 +55,9 @@ export async function growLeaves(points, leaves, ranRot = true) {
 
         leaf_pivot.worldTransform.position = point.worldTransform.position;
 
-        if (ranRot) {
-            leaf_pivot.transform.rotationX = point.transform.rotationX.add(toRadian(range(0, 30)));
-            leaf_pivot.transform.rotationY = point.transform.rotationY.add(toRadian(range(0, 30)));
-            leaf_pivot.transform.rotationZ = point.transform.rotationZ;
-        }
+        if (ranRot.indexOf('x') !== -1) leaf_pivot.transform.rotationX = point.transform.rotationX.add(toRadian(range(-10, 10)));
+        if (ranRot.indexOf('y') !== -1) leaf_pivot.transform.rotationY = point.transform.rotationY.add(toRadian(range(-10, 10)));
+        if (ranRot.indexOf('z') !== -1) leaf_pivot.transform.rotationZ = point.transform.rotationZ.add(toRadian(range(-10, 10)));
 
         const scalein = new PFTween(0, 1, 1000)
             .bind(v => leaf_pivot.transform.scale = v.scale)
@@ -69,6 +67,7 @@ export async function growLeaves(points, leaves, ranRot = true) {
             .clip;
 
         clips.push(scalein);
+        onGrow(leaf_pivot, point );
     }
 
     await PFTween.combine(clips)();

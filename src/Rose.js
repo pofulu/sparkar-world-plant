@@ -34,6 +34,8 @@ export async function on(pos) {
         await Effect.rain();
         await growStem(stem);
         await growFlower(flowersGrowPoints, flowers, 'xz');
-        await growLeaves(leavesGrowPoints, leaves, true);
+        await growLeaves(leavesGrowPoints, leaves, 'xy');
     })
+
+    return pot;
 }
