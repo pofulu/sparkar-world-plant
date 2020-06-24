@@ -47,7 +47,7 @@ async function main() {
             TouchGestures.onTap(pot1),
         ], effectList.on);
 
-    } else if (times == 2) {
+    } else if (times >= 2) {
         const pot0 = await flowerList[0].on(Reactive.pack3(0.13, 0, 0.1));
         const pot1 = await flowerList[1].on(Reactive.pack3(0, 0, -0.1));
         const pot2 = await flowerList[2].on(Reactive.pack3(-0.13, 0, 0.1));
@@ -58,15 +58,13 @@ async function main() {
             TouchGestures.onTap(pot2),
         ], effectList.on);
     }
-
-    Reactive.or(Device.isRecordingVideo, Device.isCapturingPhoto).onOn().subscribe(State.addPlayCount);
+    Reactive.or(Device.isRecordingVideo, Device.isCapturingPhoto).onOn().subscribe(() => DataManager.addPlayCount());
     set_pot_textures();
 }
 
 async function set_pot_textures() {
     const all_pots = await Scene.root.findByPath('**/pot');
     const all_textures = await Textures.findUsingPattern('pot_*');
-
     Picker.setVisible(true);
     await Picker.configUsingNames([
         'picker_camo',

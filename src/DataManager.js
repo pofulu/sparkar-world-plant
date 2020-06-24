@@ -10,8 +10,8 @@ const initData = {
 export async function addPlayCount() {
     const userScope = Persistence.userScope;
     const currentCount = await getPlayTimes();
-    currentCount++;
-    await userScope.set('data', { count: currentCount });
+    const toSave = currentCount + 1;
+    await userScope.set('data', { count: toSave });
 }
 
 export async function resetPlayCount() {

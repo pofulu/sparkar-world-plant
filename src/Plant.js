@@ -67,7 +67,9 @@ export async function growLeaves(points, leaves, ranRot, onGrow) {
             .clip;
 
         clips.push(scalein);
-        onGrow(leaf_pivot, point );
+        
+        if (onGrow != undefined)
+            onGrow(leaf_pivot, point);
     }
 
     await PFTween.combine(clips)();
