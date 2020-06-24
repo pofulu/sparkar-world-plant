@@ -30,6 +30,8 @@ async function main() {
     await WorldObject.init();
     await Butterfly.init();
 
+    Scene.root.hidden = true;
+
     const times = await DataManager.getPlayTimes();
     const flowerList = shuffle(allFlowers);
     const effectList = randomSelect([Butterfly, Rainbow]);
@@ -60,6 +62,8 @@ async function main() {
     }
     Reactive.or(Device.isRecordingVideo, Device.isCapturingPhoto).onOn().subscribe(() => DataManager.addPlayCount());
     set_pot_textures();
+
+    Scene.root.hidden = false;
 }
 
 async function set_pot_textures() {

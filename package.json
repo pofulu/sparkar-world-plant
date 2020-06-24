@@ -30,6 +30,7 @@
     "sparkar-picker-handler": "^0.7.1",
     "sparkar-remap": "^0.1.0",
     "sparkar-scenequery": "^0.1.4",
+    "sparkar-sound": "^0.2.0",
     "webpack": "^4.42.1"
   }
 }

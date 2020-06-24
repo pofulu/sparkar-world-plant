@@ -3338,6 +3338,11 @@ sparkar-scenequery@^0.1.4:
   resolved "https://registry.yarnpkg.com/sparkar-scenequery/-/sparkar-scenequery-0.1.4.tgz#714397fde9111943b2d0dc6eecf465160434eb77"
   integrity sha512-f/4zJwDI0plHFa7fCGsBqFuU9zcZ/GpMY7BQtA7vbfbirxrCAiVHJq7xVVghVwdSeUHtHivJs3thfq85y3BtjA==
 
+sparkar-sound@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/sparkar-sound/-/sparkar-sound-0.2.0.tgz#747ac26e59775a03f87e2d20f21b56b17b07998b"
+  integrity sha512-pC7BWuw/yGiZ9KzBiOR609Bp4u8QSYpR1Tu5zyl0bavUscIY4A+/Cd6LY5/M6q682I2ImACkA1fm394zEemVTQ==
+
 split-string@^3.0.1, split-string@^3.0.2:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/split-string/-/split-string-3.1.0.tgz#7cb09dda3a86585705c64b39a6466038682e8fe2"

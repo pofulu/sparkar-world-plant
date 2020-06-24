@@ -2,6 +2,7 @@
 import { PFTween, Ease } from 'sparkar-pftween';
 import { range } from './RandomUtil';
 import { toRadian } from 'sparkar-remap';
+import { getFirst, logName } from 'sparkar-scenequery';
 
 export async function growStem(stem, index = 0) {
     const scale = new PFTween(0, stem.transform.scaleX.pinLastValue(), 2000)
@@ -67,10 +68,34 @@ export async function growLeaves(points, leaves, ranRot, onGrow) {
             .clip;
 
         clips.push(scalein);
-        
+
         if (onGrow != undefined)
             onGrow(leaf_pivot, point);
     }
 
     await PFTween.combine(clips)();
+}
+
+export async function setSign(root, name, origin, genus, species, meaning_header, meaning) {
+    const _name = await root.findFirst('name');
+    const _origin = await root.findFirst('origin');
+    const _genus = await root.findFirst('genus');
+    const _species = await root.findFirst('species');
+    const _meaning_header = await root.findFirst('meaning header');
+    const _meaning = await root.findFirst('meaning');
+
+    _name.transform.y = 55;
+    _name.text = name;
+    _origin.transform.y = 35;
+    _origin.text = origin;
+    _genus.transform.y = 20;
+    _genus.text = genus;
+    _species.transform.y = 10;
+    _species.text = species;
+    _meaning_header.transform.y = -15;
+    _meaning_header.text = meaning_header;
+    _meaning.transform.y = -35;
+    _meaning.text = meaning;
+
+    return await root.findByPath('sign*').then(getFirst);
 }
